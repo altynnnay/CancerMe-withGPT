@@ -1,51 +1,81 @@
-#CancerMe 🧬  
-An AI-powered platform for skin lesion diagnostics with medical explanations from a GPT-based consultant.  
-# 🧬 CancerMe – AI Skin Cancer Diagnostic
+# CancerMe with GPT
 
-**CancerMe** is an AI-powered platform that analyzes skin lesion images to detect potential skin cancers (e.g., melanoma), and provides a **friendly, GPT-based medical explanation** of the results.
-
-Built with computer vision + GPT to help users better understand their skin health.
+An AI-powered diagnostic platform for skin lesions with natural language explanations.
 
 ---
 
-## 💡 About
+## 🔧 Installation
 
-Skin cancer is one of the most common and dangerous types of cancer worldwide. Early detection significantly improves the chances of successful treatment.
+Clone the repository and install dependencies:
 
-**CancerMe** combines:
-- A CNN model trained on dermatoscopic images (e.g., HAM10000)
-- GPT-based explanations to help users interpret AI predictions
+```bash
+git clone https://github.com/altynnnay/CancerMe-withGPT.git
+cd CancerMe-withGPT
+pip install -r requirements.txt
+```
 
-This platform is NOT a medical device — it is intended for **educational and supportive use only**.
-
----
-
-## 🚀 Features
-
-- 🧠 Predicts skin lesion class using a trained CNN model
-- 📊 Shows class label + confidence level
-- 💬 GPT-3.5-powered consultant explains the prediction clearly
-- 📷 Upload any image of a skin lesion
-- ⚠️ Warns users if the input doesn't look like a human skin lesion
-- 🔐 No data is saved — fully client-side & private
+Make sure you also have a trained `model.h5` file in the root directory.
 
 ---
 
-## 🛠 Tech Stack
+## 🚀 Launch the App
 
-- Python
-- TensorFlow / Keras
-- OpenCV
-- Gradio
-- OpenAI API (gpt-3.5-turbo)
-- Colab or Hugging Face Spaces (frontend)
+```bash
+python app.py
+```
 
-🧠 How GPT is used
+The Gradio interface will open in your browser for uploading skin lesion images.
 
-After image classification, a custom GPT prompt is sent:
-You are a kind and intelligent dermatologist AI.
-Explain what this result means (e.g. MEL with 93% confidence), what to do next, and how serious it may be.
-Be clear, calm, and medically accurate.
-⚠️ Disclaimer
+---
 
-This tool does not provide medical diagnosis. Always consult a qualified healthcare professional for medical concerns.
+## 📁 Project Structure
+
+```
+CancerMe-withGPT/
+├── README.md
+├── requirements.txt
+├── model.h5
+├── app.py
+└── assets/
+    └── example_images/
+```
+
+---
+
+## 🧠 What it does
+
+- Classifies skin lesion images into 7 classes using a CNN (`model.h5`)
+- Uses GPT (via OpenAI API) to generate a natural language explanation for the prediction, including:
+  - What it could mean
+  - Risk level
+  - What to do next
+
+---
+
+## 🧪 Example
+
+Upload a photo of a skin lesion, and you'll get:
+
+```
+Prediction: MEL
+Confidence: 87.52%
+
+GPT Explanation:
+This lesion has a high probability of being melanoma, which is a serious type of skin cancer. It is strongly advised to...
+```
+
+---
+
+## 🔐 API Key
+
+To use the GPT explanation feature, create an API key on [OpenAI](https://platform.openai.com/account/api-keys) and set it in the `app.py` file:
+
+```python
+openai.api_key = "your_api_key_here"
+```
+
+---
+
+## 📜 License
+
+MIT License. Free for academic and personal use.
