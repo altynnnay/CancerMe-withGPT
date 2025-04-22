@@ -1,0 +1,51 @@
+#CancerMe 🧬  
+An AI-powered platform for skin lesion diagnostics with medical explanations from a GPT-based consultant.  
+# 🧬 CancerMe – AI Skin Cancer Diagnostic
+
+**CancerMe** is an AI-powered platform that analyzes skin lesion images to detect potential skin cancers (e.g., melanoma), and provides a **friendly, GPT-based medical explanation** of the results.
+
+Built with computer vision + GPT to help users better understand their skin health.
+
+---
+
+## 💡 About
+
+Skin cancer is one of the most common and dangerous types of cancer worldwide. Early detection significantly improves the chances of successful treatment.
+
+**CancerMe** combines:
+- A CNN model trained on dermatoscopic images (e.g., HAM10000)
+- GPT-based explanations to help users interpret AI predictions
+
+This platform is NOT a medical device — it is intended for **educational and supportive use only**.
+
+---
+
+## 🚀 Features
+
+- 🧠 Predicts skin lesion class using a trained CNN model
+- 📊 Shows class label + confidence level
+- 💬 GPT-3.5-powered consultant explains the prediction clearly
+- 📷 Upload any image of a skin lesion
+- ⚠️ Warns users if the input doesn't look like a human skin lesion
+- 🔐 No data is saved — fully client-side & private
+
+---
+
+## 🛠 Tech Stack
+
+- Python
+- TensorFlow / Keras
+- OpenCV
+- Gradio
+- OpenAI API (gpt-3.5-turbo)
+- Colab or Hugging Face Spaces (frontend)
+
+🧠 How GPT is used
+
+After image classification, a custom GPT prompt is sent:
+You are a kind and intelligent dermatologist AI.
+Explain what this result means (e.g. MEL with 93% confidence), what to do next, and how serious it may be.
+Be clear, calm, and medically accurate.
+⚠️ Disclaimer
+
+This tool does not provide medical diagnosis. Always consult a qualified healthcare professional for medical concerns.
